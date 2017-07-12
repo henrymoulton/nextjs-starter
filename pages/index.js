@@ -5,6 +5,25 @@ import Link from 'next/link'
 import React from 'react'
 import Page from '../components/page'
 import Layout from '../components/layout'
+import { Button } from 'reactstrap';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
+
+const data = [
+  { name: "08:00", heat: 4000, noise: 2400, light: 2400 },
+  { name: "10:00", heat: 3000, noise: 1398, light: 2210 },
+  { name: "12:00", heat: 2000, noise: 9800, light: 2290 },
+  { name: "14:00", heat: 2780, noise: 3908, light: 2000 },
+  { name: "16:00", heat: 1890, noise: 4800, light: 2181 },
+  { name: "18:00", heat: 2390, noise: 3800, light: 2500 },
+];
 
 export default class extends Page {
 
@@ -12,6 +31,27 @@ export default class extends Page {
     return (
       <Layout session={this.props.session}>
         <h2>About this project</h2>
+        <Button color="danger">Danger!</Button>
+        <LineChart
+            width={600}
+            height={300}
+            data={data}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis dataKey="name" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Legend />
+          <Line
+              type="monotone"
+              dataKey="heat"
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="noise" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="light" stroke="#fd825c" />
+        </LineChart>
         <p>
           This is a starter <a href="https://zeit.co/blog/next">Next.js 2.0</a> project
           that shows how to put together a simple website with server and client
