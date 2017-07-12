@@ -13,7 +13,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 
 const data = [
@@ -32,6 +33,7 @@ export default class extends Page {
       <Layout session={this.props.session}>
         <h2>About this project</h2>
         <Button color="danger">Danger!</Button>
+        <ResponsiveContainer aspect={2}>
         <LineChart
             width={600}
             height={300}
@@ -52,6 +54,7 @@ export default class extends Page {
           <Line type="monotone" dataKey="noise" stroke="#82ca9d" />
           <Line type="monotone" dataKey="light" stroke="#fd825c" />
         </LineChart>
+        </ResponsiveContainer>
         <p>
           This is a starter <a href="https://zeit.co/blog/next">Next.js 2.0</a> project
           that shows how to put together a simple website with server and client
