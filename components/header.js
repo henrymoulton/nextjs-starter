@@ -5,6 +5,7 @@ import React from 'react'
 import inlineCSS from '../css/main.scss'
 import Package from '../package'
 import Menu from './menu'
+import Navigation from './navigation'
 
 export default class extends React.Component {
 
@@ -32,12 +33,9 @@ export default class extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <script src="https://cdn.polyfill.io/v2/polyfill.min.js"/>
           {stylesheet}
+          <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet"/>
         </Head>
-        <Menu session={this.props.session}/>
-        <div className="header">
-          <h1><Link prefetch href="/"><a>Next.js 2.0 Starter Project</a></Link></h1>
-          <hr/>
-        </div>
+        <Navigation/>
       </header>
     )
   }
